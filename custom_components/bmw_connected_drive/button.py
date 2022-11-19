@@ -72,6 +72,12 @@ BUTTON_TYPES: tuple[BMWButtonEntityDescription, ...] = (
         account_function=lambda coordinator: coordinator.async_request_refresh(),
         enabled_when_read_only=True,
     ),
+    BMWButtonEntityDescription(
+        key="charge_now",
+        icon="mdi:bolt",
+        name="Charge now",
+        remote_function=lambda vehicle: vehicle.remote_services.trigger_charge_now()
+    )
 )
 
 
